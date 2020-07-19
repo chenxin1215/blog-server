@@ -1,9 +1,12 @@
 package com.cx.blog.server.dto.response;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.cx.blog.server.utils.exception.BizExceptionEnum;
 
-@ApiModel
+/**
+ * The Class BaseResp.
+ *
+ * @param <T> the generic type
+ */
 public abstract class BaseView<T> {
 
     /**
@@ -27,15 +30,12 @@ public abstract class BaseView<T> {
     public static final String FORCE = "0003";
 
     /** 状态码. */
-    @ApiModelProperty("状态码")
     private String rspCode;
 
     /** 返回信息. */
-    @ApiModelProperty("返回信息")
     private String rspMsg;
 
     /** 返回数据. */
-    @ApiModelProperty("返回数据")
     private T rspData;
 
     /**
@@ -115,6 +115,12 @@ public abstract class BaseView<T> {
     public void fail(String rspMsg) {
         this.setRspCode(NOTIFY);
         this.setRspMsg(rspMsg);
+    }
+
+    /** 设置返回状态为失败，自定义返回消息 */
+    public void fail(BizExceptionEnum bizEnum) {
+        this.setRspCode(bizEnum.getCode());
+        this.setRspMsg(bizEnum.getMsg());
     }
 
     public void silence(String rspMsg) {
