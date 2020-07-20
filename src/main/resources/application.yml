@@ -1,0 +1,48 @@
+server:
+  port: 12382
+  servlet:
+    context-path: /blog
+    session:
+       timeout: PT1H
+spring:
+  profiles:
+    # dev | product | test 
+    active: dev
+  # 文件上传
+  servlet:
+     multipart:
+       # 单个文件大小
+       max-file-size:  10MB
+       # 设置总上传的文件大小
+       max-request-size:  20MB
+  jackson:
+    default-property-inclusion: always
+    deserialization:
+      fail-on-unknown-properties: false
+      use-big-decimal-for-floats: true
+    serialization:
+      indent-output: true
+      fail-on-empty-beans: false
+      write-dates-as-timestamps: false
+    parser:
+      allow-numeric-leading-zeros: true
+    date-format: yyyy-MM-dd HH:mm:ss
+    locale: zh_CN
+    time-zone: GMT+8
+
+# 用户配置
+user:
+  password:
+    # 密码错误{maxRetryCount}次锁定10分钟
+    maxRetryCount: 5
+
+dubbo:
+  application:
+    id: blog-server-consumer
+    name: blog-server-consumer
+  registry:
+    id: cx-registry
+  consumer:
+    check: false
+    timeout: 20000
+    retries: -1

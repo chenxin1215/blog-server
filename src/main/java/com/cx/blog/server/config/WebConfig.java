@@ -1,12 +1,12 @@
 package com.cx.blog.server.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.request.RequestContextListener;
-import org.springframework.web.servlet.config.annotation.*;
-
-import com.cx.blog.server.interceptor.RepeatSubmitInterceptor;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 通用配置
@@ -17,7 +17,7 @@ import com.cx.blog.server.interceptor.RepeatSubmitInterceptor;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
-    private @Autowired RepeatSubmitInterceptor repeatSubmitInterceptor;
+    // private @Autowired RepeatSubmitInterceptor repeatSubmitInterceptor;
 
     @Bean
     public RequestContextListener requestContextListener() {
@@ -33,10 +33,10 @@ public class WebConfig implements WebMvcConfigurer {
     /**
      * 自定义拦截规则
      */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(repeatSubmitInterceptor).addPathPatterns("/**").excludePathPatterns("/swagger-ui.html");
-    }
+    // @Override
+    // public void addInterceptors(InterceptorRegistry registry) {
+    // registry.addInterceptor(repeatSubmitInterceptor).addPathPatterns("/**").excludePathPatterns("/swagger-ui.html");
+    // }
 
     /**
      * web跨域访问配置

@@ -1,11 +1,11 @@
 package com.cx.user.client.security;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.cx.user.client.commom.UserDetailsModel;
 import com.cx.user.entity.UserBaseInfo;
 import com.cx.user.service.IAPIUserBaseInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,7 +17,7 @@ public class UserDetailService implements UserDetailsService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserDetailService.class);
 
-    private @Autowired IAPIUserBaseInfoService userBaseInfoService;
+    private @Reference IAPIUserBaseInfoService userBaseInfoService;
 
     @Override
     public UserDetails loadUserByUsername(String loginName) {

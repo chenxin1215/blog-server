@@ -19,7 +19,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -36,7 +35,7 @@ public class LoginHandler implements AuthenticationSuccessHandler, Authenticatio
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-        Authentication authentication) throws IOException, ServletException {
+        Authentication authentication) throws IOException {
         logger.info("登录成功");
 
         response.setCharacterEncoding("UTF-8");
@@ -72,7 +71,7 @@ public class LoginHandler implements AuthenticationSuccessHandler, Authenticatio
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-        AuthenticationException exception) throws IOException, ServletException {
+        AuthenticationException exception) {
         logger.info("登录失败");
 
         StringView resp = new StringView();
