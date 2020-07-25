@@ -16,6 +16,7 @@ public class LoginAuthenticationEntryPoint implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest request, HttpServletResponse response,
         AuthenticationException authException) {
 
+        System.out.println("请求被拦截");
         SimpleView view = new SimpleView();
         view.setRspCode("1000");
         view.setRspMsg("请重新登录系统");

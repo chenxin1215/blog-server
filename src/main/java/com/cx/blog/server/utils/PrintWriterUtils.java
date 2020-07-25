@@ -14,7 +14,7 @@ public class PrintWriterUtils {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
 
-        try (PrintWriter out = response.getWriter();) {
+        try (PrintWriter out = response.getWriter()) {
             out.write(JsonUtil.stringify(object));
             out.flush();
         } catch (Exception e) {
