@@ -1,6 +1,6 @@
 package com.cx.blog.server.config;
 
-import com.cx.blog.server.utils.Threads;
+import com.cx.utils.util.Threads;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

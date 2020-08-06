@@ -1,6 +1,6 @@
 package com.cx.blog.server.dto.response;
 
-import com.cx.blog.server.utils.exception.BizExceptionEnum;
+import com.cx.utils.exception.BizExceptionEnum;
 
 /**
  * The Class BaseResp.

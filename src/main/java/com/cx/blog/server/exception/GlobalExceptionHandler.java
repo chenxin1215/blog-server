@@ -1,8 +1,8 @@
 package com.cx.blog.server.exception;
 
 import com.cx.blog.server.dto.response.StringView;
-import com.cx.blog.server.utils.exception.BizException;
-import com.cx.blog.server.utils.exception.BizRtException;
+import com.cx.utils.exception.BizException;
+import com.cx.utils.exception.BizRtException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**

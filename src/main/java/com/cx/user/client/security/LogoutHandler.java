@@ -1,7 +1,7 @@
 package com.cx.user.client.security;
 
 import com.cx.blog.server.dto.response.StringView;
-import com.cx.blog.server.utils.JsonUtil;
+import com.cx.utils.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;

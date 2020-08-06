@@ -39,6 +39,12 @@
             <version>${cx.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.cx.utils</groupId>
+            <artifactId>cx-utils</artifactId>
+            <version>${cx.version}</version>
+        </dependency>
+
         <!--spring-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

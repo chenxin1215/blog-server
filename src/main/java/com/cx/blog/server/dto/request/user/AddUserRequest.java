@@ -1,35 +1,29 @@
 package com.cx.blog.server.dto.request.user;
 
-import java.util.List;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-public class AddUserRequest {
+import java.io.Serializable;
+import java.util.List;
 
-    @NotBlank
+@ApiModel("新增用户入参")
+public class AddUserRequest implements Serializable {
+
     @ApiModelProperty("登录名")
     private String loginName;
 
-    @NotBlank
-    @ApiModelProperty("员工号")
-    private String staffNo;
+    @ApiModelProperty("昵称")
+    private String nickname;
 
-    @NotBlank
     @ApiModelProperty("手机号")
     private String mobile;
 
-    @NotBlank
     @ApiModelProperty("密码")
     private String password;
 
-    @NotNull
     @ApiModelProperty("状态, 0:启用，1：禁用")
     private Integer status;
 
-    @NotNull
     @ApiModelProperty("角色列表")
     private List<Long> roleIdList;
 
@@ -39,14 +33,6 @@ public class AddUserRequest {
 
     public void setLoginName(String loginName) {
         this.loginName = loginName;
-    }
-
-    public String getStaffNo() {
-        return staffNo;
-    }
-
-    public void setStaffNo(String staffNo) {
-        this.staffNo = staffNo;
     }
 
     public String getMobile() {
@@ -81,4 +67,11 @@ public class AddUserRequest {
         this.roleIdList = roleIdList;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 }

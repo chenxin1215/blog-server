@@ -1,7 +1,7 @@
 package com.cx.user.client.security;
 
 import com.cx.blog.server.dto.response.SimpleView;
-import com.cx.blog.server.utils.PrintWriterUtils;
+import com.cx.utils.util.PrintWriterUtils;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

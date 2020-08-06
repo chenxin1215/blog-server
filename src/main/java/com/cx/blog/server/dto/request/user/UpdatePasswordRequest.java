@@ -3,8 +3,9 @@ package com.cx.blog.server.dto.request.user;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
-public class UpdatePasswordRequest {
+public class UpdatePasswordRequest implements Serializable {
 
     @NotBlank
     @ApiModelProperty("老密码")

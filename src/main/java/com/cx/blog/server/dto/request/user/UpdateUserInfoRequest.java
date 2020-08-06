@@ -2,7 +2,9 @@ package com.cx.blog.server.dto.request.user;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class UpdateUserInfoRequest {
+import java.io.Serializable;
+
+public class UpdateUserInfoRequest implements Serializable {
 
     @ApiModelProperty("用户编号")
     private Long userId;
