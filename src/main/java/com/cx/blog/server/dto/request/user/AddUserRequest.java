@@ -16,7 +16,7 @@ public class AddUserRequest implements Serializable {
     private String nickname;
 
     @ApiModelProperty("手机号")
-    private String mobile;
+    private String userMobile;
 
     @ApiModelProperty("密码")
     private String password;
@@ -35,12 +35,12 @@ public class AddUserRequest implements Serializable {
         this.loginName = loginName;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getUserMobile() {
+        return userMobile;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setUserMobile(String userMobile) {
+        this.userMobile = userMobile;
     }
 
     public String getPassword() {

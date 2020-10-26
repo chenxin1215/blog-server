@@ -7,6 +7,7 @@ import com.cx.blog.server.dto.request.user.UpdateUserInfoRequest;
 import com.cx.blog.server.dto.response.PageListViewData;
 import com.cx.blog.server.dto.response.SimpleView;
 import com.cx.blog.server.dto.response.StringView;
+import com.cx.blog.server.util.SecurityUtils;
 import com.cx.user.client.commom.PasswordEncryService;
 import com.cx.user.dto.request.QueryUserBaseInfoCondition;
 import com.cx.user.dto.request.SaveUserRequest;
@@ -20,7 +21,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
@@ -53,7 +57,8 @@ public class UserController {
 
         SaveUserRequest saveUserRequest = new SaveUserRequest();
         BeanUtils.copyProperties(request, saveUserRequest);
-
+        saveUserRequest.setLoginPassword(passwordEncryService.encode(request.getPassword()));
+        saveUserRequest.setOperationUserId(SecurityUtils.getLoginUserId());
         userBaseInfoService.addUser(saveUserRequest);
 
         view.success("新增成功");
