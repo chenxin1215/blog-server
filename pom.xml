@@ -38,6 +38,16 @@
             <artifactId>user-center-api</artifactId>
             <version>${cx.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.cx.blog</groupId>
+            <artifactId>trade-business-engine-api</artifactId>
+            <version>${cx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cx.storage</groupId>
+            <artifactId>cx-object-storage</artifactId>
+            <version>${cx.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.cx.utils</groupId>

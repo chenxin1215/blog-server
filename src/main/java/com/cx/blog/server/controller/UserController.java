@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cx.blog.server.dto.request.user.AddUserRequest;
 import com.cx.blog.server.dto.request.user.UpdateUserInfoRequest;
 import com.cx.blog.server.dto.response.PageListViewData;
-import com.cx.blog.server.dto.response.SimpleView;
 import com.cx.blog.server.dto.response.StringView;
 import com.cx.blog.server.util.SecurityUtils;
 import com.cx.user.client.commom.PasswordEncryService;
@@ -32,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/6/14
  */
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 @Api(tags = "用户控制器")
 public class UserController {
 
@@ -81,15 +80,13 @@ public class UserController {
 
     @PostMapping(value = "/queryUserList")
     @ApiOperation("用户列表")
-    public SimpleView queryUserList(@RequestBody QueryUserBaseInfoCondition condition) {
-        SimpleView view = new SimpleView();
-        PageListViewData<UserShowInfo> pageListViewData = new PageListViewData<>();
+    public PageListViewData<UserShowInfo> queryUserList(@RequestBody QueryUserBaseInfoCondition condition) {
+        PageListViewData<UserShowInfo> view = new PageListViewData<>();
 
         Page<UserShowInfo> infoList = userBaseInfoService.pageQueryUserBaseInfoList(condition);
-        pageListViewData.setTotal((int)infoList.getTotal());
-        pageListViewData.setData(infoList.getRecords());
+        view.setTotal((int)infoList.getTotal());
+        view.setData(infoList.getRecords());
 
-        view.success(pageListViewData);
         return view;
     }
 
