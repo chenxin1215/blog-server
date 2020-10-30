@@ -6,6 +6,7 @@ import com.cx.blog.dto.request.article.QueryArticleCondition;
 import com.cx.blog.dto.request.article.SaveArticleRequest;
 import com.cx.blog.dto.response.ArticleDetail;
 import com.cx.blog.entity.article.Article;
+import com.cx.blog.entity.label.Label;
 import com.cx.blog.enums.ContentTypeEnum;
 import com.cx.blog.server.dto.request.article.AddArticleRequest;
 import com.cx.blog.server.dto.request.article.QueryArticleRequest;
@@ -17,6 +18,7 @@ import com.cx.blog.server.dto.response.StringView;
 import com.cx.blog.server.dto.response.article.ArticleDetailView;
 import com.cx.blog.service.IAPIArticleService;
 import com.cx.blog.service.IAPICommentService;
+import com.cx.blog.service.IAPILabelService;
 import com.cx.utils.util.JsonUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -52,6 +54,9 @@ public class ArticleController {
 
     @Reference
     private IAPICommentService commentService;
+
+    @Reference
+    private IAPILabelService labelService;
 
     @PostMapping(value = "/addArticle")
     @ApiOperation("新增文章")
@@ -125,6 +130,11 @@ public class ArticleController {
                 ArticleDetailView data = new ArticleDetailView();
                 BeanUtils.copyProperties(record, data);
                 data.setCommentNum(commentNumMap.get(record.getArticleId()));
+
+                // 标签
+                List<Label> labelList =
+                    labelService.queryLabelListByRel(ContentTypeEnum.ARTICLE.value(), record.getArticleId());
+                data.setLabelList(labelList);
                 list.add(data);
             }
             view.setData(list);

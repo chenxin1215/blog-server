@@ -1,10 +1,12 @@
 package com.cx.blog.server.dto.response.article;
 
+import com.cx.blog.entity.label.Label;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 〈文章详情〉
@@ -44,6 +46,9 @@ public class ArticleDetailView implements Serializable {
 
     @ApiModelProperty("评论数")
     private Integer commentNum;
+
+    @ApiModelProperty("标签")
+    private List<Label> labelList;
 
     public Long getArticleId() {
         return articleId;
@@ -123,5 +128,13 @@ public class ArticleDetailView implements Serializable {
 
     public void setCommentNum(Integer commentNum) {
         this.commentNum = commentNum;
+    }
+
+    public List<Label> getLabelList() {
+        return labelList;
+    }
+
+    public void setLabelList(List<Label> labelList) {
+        this.labelList = labelList;
     }
 }
