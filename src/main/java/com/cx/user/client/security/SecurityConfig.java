@@ -78,5 +78,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/swagger-ui.html", "/swagger-resources/**", "/v2/**", "/webjars/**", "/static/**",
             "/css/**", "/images/**");
+        web.ignoring().antMatchers("/pageInfo/getPageInfo", "/article/queryArticleDetail",
+            "/article/queryArticleInfoList", "/comment/addCommentRoot", "/comment/addCommentReply",
+            "/comment/queryCommentRootList", "/comment/queryCommentReplyList","/label/queryLabelList");
     }
 }

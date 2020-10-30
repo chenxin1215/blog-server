@@ -15,6 +15,8 @@ import com.cx.blog.server.dto.request.comment.QueryCommentRootRequest;
 import com.cx.blog.server.dto.request.common.IdRequest;
 import com.cx.blog.server.dto.response.PageListViewData;
 import com.cx.blog.server.dto.response.StringView;
+import com.cx.blog.server.dto.response.comment.CommentReplyView;
+import com.cx.blog.server.dto.response.comment.CommentRootView;
 import com.cx.blog.server.util.SecurityUtils;
 import com.cx.blog.service.IAPICommentService;
 import com.cx.utils.util.JsonUtil;
@@ -23,10 +25,14 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 〈评论控制器〉
@@ -102,16 +108,25 @@ public class CommentController {
 
     @PostMapping(value = "/queryCommentRootList")
     @ApiOperation("查询主评论列表")
-    public PageListViewData<CommentRoot> queryCommentRootList(@RequestBody QueryCommentRootRequest request) {
+    public PageListViewData<CommentRootView> queryCommentRootList(@RequestBody QueryCommentRootRequest request) {
         LOGGER.info("### queryCommentRootList start req:{}", JsonUtil.toString(request));
-        PageListViewData<CommentRoot> view = new PageListViewData<>();
+        PageListViewData<CommentRootView> view = new PageListViewData<>();
 
         QueryCommentRootCondition condition = new QueryCommentRootCondition();
         BeanUtils.copyProperties(request, condition);
         IPage<CommentRoot> commentRootIPage = commentService.queryCommentRootList(condition);
-
-        view.setData(commentRootIPage.getRecords());
         view.setTotal((int)commentRootIPage.getTotal());
+
+        List<CommentRoot> records = commentRootIPage.getRecords();
+        if (!CollectionUtils.isEmpty(records)) {
+            List<CommentRootView> viewList = new ArrayList<>();
+            for (CommentRoot record : records) {
+                CommentRootView viewData = new CommentRootView();
+                BeanUtils.copyProperties(record, viewData);
+                viewList.add(viewData);
+            }
+            view.setData(viewList);
+        }
 
         LOGGER.info("### queryCommentRootList end");
         return view;
@@ -119,16 +134,25 @@ public class CommentController {
 
     @PostMapping(value = "/queryCommentReplyList")
     @ApiOperation("查询评论回复列表")
-    public PageListViewData<CommentReply> queryCommentReplyList(@RequestBody QueryCommentReplyRequest request) {
+    public PageListViewData<CommentReplyView> queryCommentReplyList(@RequestBody QueryCommentReplyRequest request) {
         LOGGER.info("### queryCommentReplyList start req:{}", JsonUtil.toString(request));
-        PageListViewData<CommentReply> view = new PageListViewData<>();
+        PageListViewData<CommentReplyView> view = new PageListViewData<>();
 
         QueryCommentReplyCondition condition = new QueryCommentReplyCondition();
         BeanUtils.copyProperties(request, condition);
         IPage<CommentReply> commentReplyIPage = commentService.queryCommentReplyList(condition);
-
-        view.setData(commentReplyIPage.getRecords());
         view.setTotal((int)commentReplyIPage.getTotal());
+
+        List<CommentReply> records = commentReplyIPage.getRecords();
+        if (!CollectionUtils.isEmpty(records)) {
+            List<CommentReplyView> viewList = new ArrayList<>();
+            for (CommentReply record : records) {
+                CommentReplyView viewData = new CommentReplyView();
+                BeanUtils.copyProperties(record, viewData);
+                viewList.add(viewData);
+            }
+            view.setData(viewList);
+        }
 
         LOGGER.info("### queryCommentReplyList end");
         return view;

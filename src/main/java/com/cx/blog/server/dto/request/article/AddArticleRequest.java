@@ -21,12 +21,6 @@ public class AddArticleRequest implements Serializable {
     @ApiModelProperty("标题图片key")
     private String articleTitleImage;
 
-    @ApiModelProperty("文章类型")
-    private Long articleType;
-
-    @ApiModelProperty("文章状态(1:正常；0：屏蔽)")
-    private Boolean articleStatus;
-
     @ApiModelProperty("文章内容")
     private String articleContent;
 
@@ -47,22 +41,6 @@ public class AddArticleRequest implements Serializable {
 
     public void setArticleTitleImage(String articleTitleImage) {
         this.articleTitleImage = articleTitleImage;
-    }
-
-    public Long getArticleType() {
-        return articleType;
-    }
-
-    public void setArticleType(Long articleType) {
-        this.articleType = articleType;
-    }
-
-    public Boolean getArticleStatus() {
-        return articleStatus;
-    }
-
-    public void setArticleStatus(Boolean articleStatus) {
-        this.articleStatus = articleStatus;
     }
 
     public String getArticleContent() {
