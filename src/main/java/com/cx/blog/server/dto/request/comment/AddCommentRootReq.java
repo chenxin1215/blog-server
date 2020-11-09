@@ -23,6 +23,9 @@ public class AddCommentRootReq implements Serializable {
     @ApiModelProperty("评论者id")
     private Long formUserId;
 
+    @ApiModelProperty("评论者头像")
+    private String fromUserHeadImg;
+
     @ApiModelProperty("评论者名称")
     private String fromUserName;
 
@@ -78,5 +81,13 @@ public class AddCommentRootReq implements Serializable {
 
     public void setCommentContent(String commentContent) {
         this.commentContent = commentContent;
+    }
+
+    public String getFromUserHeadImg() {
+        return fromUserHeadImg;
+    }
+
+    public void setFromUserHeadImg(String fromUserHeadImg) {
+        this.fromUserHeadImg = fromUserHeadImg;
     }
 }

@@ -25,6 +25,9 @@ public class CommentRootView implements Serializable{
     @ApiModelProperty("被评论对象类型 1-本系统 2-文章")
     private Integer ownerType;
 
+    @ApiModelProperty("评论者头像")
+    private String fromUserHeadImg;
+
     @ApiModelProperty("评论者名称")
     private String fromUserName;
 
@@ -42,7 +45,7 @@ public class CommentRootView implements Serializable{
     private Date commentTime;
 
     @ApiModelProperty("是否置顶")
-    private Boolean isTop;
+    private Boolean topSign;
 
     public Long getCommentId() {
         return commentId;
@@ -108,11 +111,19 @@ public class CommentRootView implements Serializable{
         this.commentTime = commentTime;
     }
 
-    public Boolean getTop() {
-        return isTop;
+    public Boolean getTopSign() {
+        return topSign;
     }
 
-    public void setTop(Boolean top) {
-        isTop = top;
+    public void setTopSign(Boolean topSign) {
+        this.topSign = topSign;
+    }
+
+    public String getFromUserHeadImg() {
+        return fromUserHeadImg;
+    }
+
+    public void setFromUserHeadImg(String fromUserHeadImg) {
+        this.fromUserHeadImg = fromUserHeadImg;
     }
 }

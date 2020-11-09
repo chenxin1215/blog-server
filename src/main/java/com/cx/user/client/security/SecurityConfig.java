@@ -80,6 +80,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/css/**", "/images/**");
         web.ignoring().antMatchers("/pageInfo/getPageInfo", "/article/queryArticleDetail",
             "/article/queryArticleInfoList", "/comment/addCommentRoot", "/comment/addCommentReply",
-            "/comment/queryCommentRootList", "/comment/queryCommentReplyList","/label/queryLabelList");
+            "/comment/queryCommentRootList", "/comment/queryCommentReplyList", "/label/queryLabelList");
     }
 }

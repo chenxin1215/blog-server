@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -116,6 +117,11 @@ public class CommentController {
         BeanUtils.copyProperties(request, condition);
         IPage<CommentRoot> commentRootIPage = commentService.queryCommentRootList(condition);
         view.setTotal((int)commentRootIPage.getTotal());
+
+        // 评论数
+        Integer commentNum = commentService.getCommentNum(request.getOwnerType(), request.getOwnerId());
+        view.setParams(new HashMap<>());
+        view.getParams().put("commentNum", commentNum == null ? "0" : commentNum.toString());
 
         List<CommentRoot> records = commentRootIPage.getRecords();
         if (!CollectionUtils.isEmpty(records)) {

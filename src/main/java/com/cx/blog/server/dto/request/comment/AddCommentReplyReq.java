@@ -11,13 +11,16 @@ import java.io.Serializable;
  * @date 2020/10/27
  */
 @ApiModel("新增评论回复入参")
-public class AddCommentReplyReq implements Serializable{
+public class AddCommentReplyReq implements Serializable {
 
     @ApiModelProperty("主评论id")
     private Long commentRootId;
 
     @ApiModelProperty("回复人id")
     private Long replyUserId;
+
+    @ApiModelProperty("回复人头像")
+    private String replyUserHeadImg;
 
     @ApiModelProperty("回复人名称")
     private String replyUserName;
@@ -33,9 +36,6 @@ public class AddCommentReplyReq implements Serializable{
 
     @ApiModelProperty("被回复人名称")
     private String toReplyUserName;
-
-    @ApiModelProperty("被回复人邮箱")
-    private String toReplyUserEmail;
 
     @ApiModelProperty("回复内容")
     private String replyContent;
@@ -96,19 +96,19 @@ public class AddCommentReplyReq implements Serializable{
         this.toReplyUserName = toReplyUserName;
     }
 
-    public String getToReplyUserEmail() {
-        return toReplyUserEmail;
-    }
-
-    public void setToReplyUserEmail(String toReplyUserEmail) {
-        this.toReplyUserEmail = toReplyUserEmail;
-    }
-
     public String getReplyContent() {
         return replyContent;
     }
 
     public void setReplyContent(String replyContent) {
         this.replyContent = replyContent;
+    }
+
+    public String getReplyUserHeadImg() {
+        return replyUserHeadImg;
+    }
+
+    public void setReplyUserHeadImg(String replyUserHeadImg) {
+        this.replyUserHeadImg = replyUserHeadImg;
     }
 }

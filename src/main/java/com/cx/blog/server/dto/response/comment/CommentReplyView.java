@@ -23,6 +23,9 @@ public class CommentReplyView implements Serializable {
     @ApiModelProperty("主评论id")
     private Long commentRootId;
 
+    @ApiModelProperty("回复人头像")
+    private String replyUserHeadImg;
+
     @ApiModelProperty("回复人名称")
     private String replyUserName;
 
@@ -126,5 +129,13 @@ public class CommentReplyView implements Serializable {
 
     public void setReplyState(Integer replyState) {
         this.replyState = replyState;
+    }
+
+    public String getReplyUserHeadImg() {
+        return replyUserHeadImg;
+    }
+
+    public void setReplyUserHeadImg(String replyUserHeadImg) {
+        this.replyUserHeadImg = replyUserHeadImg;
     }
 }
