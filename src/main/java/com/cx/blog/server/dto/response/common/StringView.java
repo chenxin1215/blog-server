@@ -1,4 +1,4 @@
-package com.cx.blog.server.dto.response;
+package com.cx.blog.server.dto.response.common;
 
 public class StringView extends BaseView<String> {
 

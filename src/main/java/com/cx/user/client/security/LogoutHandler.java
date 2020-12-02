@@ -1,6 +1,6 @@
 package com.cx.user.client.security;
 
-import com.cx.blog.server.dto.response.StringView;
+import com.cx.blog.server.dto.response.common.StringView;
 import com.cx.utils.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

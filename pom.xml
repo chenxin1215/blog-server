@@ -45,7 +45,7 @@
         </dependency>
         <dependency>
             <groupId>com.cx.storage</groupId>
-            <artifactId>cx-object-storage</artifactId>
+            <artifactId>object-storage-engine-api</artifactId>
             <version>${cx.version}</version>
         </dependency>
 
@@ -81,11 +81,11 @@
         </dependency>
 
         <!--dev热部署-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
-        </dependency>
+        </dependency>-->
 
         <!--配置项-->
         <dependency>

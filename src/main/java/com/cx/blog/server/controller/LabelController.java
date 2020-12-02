@@ -14,8 +14,8 @@ import com.cx.blog.dto.request.label.QueryLabelCondition;
 import com.cx.blog.dto.request.label.SaveLabelRequest;
 import com.cx.blog.entity.label.Label;
 import com.cx.blog.server.dto.request.label.QueryLabelRequest;
-import com.cx.blog.server.dto.response.PageListViewData;
-import com.cx.blog.server.dto.response.StringView;
+import com.cx.blog.server.dto.response.common.PageListViewData;
+import com.cx.blog.server.dto.response.common.StringView;
 import com.cx.blog.service.IAPILabelService;
 import com.cx.utils.util.JsonUtil;
 

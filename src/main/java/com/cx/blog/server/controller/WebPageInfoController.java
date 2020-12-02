@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.cx.blog.entity.pageinfo.WebPageInfo;
-import com.cx.blog.server.dto.response.SimpleView;
+import com.cx.blog.server.dto.response.common.SimpleView;
 import com.cx.blog.server.dto.response.pageinfo.WebPageInfoView;
 import com.cx.blog.service.IAPIWebPageInfoService;
 

@@ -1,4 +1,4 @@
-package com.cx.blog.server.dto.response;
+package com.cx.blog.server.dto.response.common;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

@@ -1,8 +1,8 @@
 package com.cx.user.client.security;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.cx.blog.server.dto.response.SimpleView;
-import com.cx.blog.server.dto.response.StringView;
+import com.cx.blog.server.dto.response.common.SimpleView;
+import com.cx.blog.server.dto.response.common.StringView;
 import com.cx.user.client.commom.UserDetailsModel;
 import com.cx.user.service.IAPISysMenuService;
 import com.cx.user.service.IAPIUserPermissionService;

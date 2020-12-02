@@ -1,4 +1,4 @@
-package com.cx.blog.server.dto.response;
+package com.cx.blog.server.dto.response.common;
 
 import com.cx.utils.exception.BizExceptionEnum;
 

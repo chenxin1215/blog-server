@@ -1,6 +1,6 @@
 package com.cx.blog.server.exception;
 
-import com.cx.blog.server.dto.response.StringView;
+import com.cx.blog.server.dto.response.common.StringView;
 import com.cx.utils.exception.BizException;
 import com.cx.utils.exception.BizRtException;
 import org.slf4j.Logger;
